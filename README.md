@@ -4,7 +4,7 @@
 Inside this directory, clone the repository
 
 ```bash
-  git clone https://github.com/oroinc/trainings/tree/5.1/training_start/
+  git clone https://github.com/oroinc/trainings.git
 ```
 
 Turn on the environment in docker
