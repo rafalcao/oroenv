@@ -13,6 +13,18 @@ Turn on the environment in docker
   docker-compose up -d
 ```
 
+You can download <a href="doc:introduction" target="https://dbeaver.io/download/">DBeaver</a> to manage database.<br>
+Using this data configuration
+```
+  Hostname: 127.0.0.1
+  Port: 5432
+  User: orocommerce
+  Password: oro
+  DB: oro
+  
+  (jdbc:postgresql://127.0.0.1:5432/oro)  
+```
+
 Run the command below on the postgres database
 
 ```bash
