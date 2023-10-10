@@ -58,6 +58,7 @@ return array (
   'ORO_MAINTENANCE_LOCK_FILE_PATH' => '%kernel.project_dir%/var/cache/maintenance_lock',
 );
 
+```
 
 Access the php container
 
