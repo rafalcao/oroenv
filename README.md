@@ -1,6 +1,7 @@
 
-## Install
+## Orocommerce Training
 
+### Terminal
 Inside this directory, clone the repository
 
 ```bash
@@ -13,6 +14,7 @@ Turn on the environment in docker
   docker-compose up -d
 ```
 
+### DB
 You can download <a href="doc:introduction" target="https://dbeaver.io/download/">DBeaver</a> to manage database.<br>
 Using this data configuration
 ```
@@ -31,6 +33,7 @@ Run the command below on the postgres database
   CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
 
+### Project Dir
 Add the configuration files to the root of the "training" project
 
 `.env-app.local`
@@ -75,6 +78,9 @@ return array (
 );
 
 ```
+
+
+### Back to terminal
 
 Access the php container
 
