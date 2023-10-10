@@ -1,5 +1,5 @@
 data/
-trainings/
 esdata/
 trainings/
 !trainings/src/Training
+!trainings/src/
