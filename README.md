@@ -103,7 +103,7 @@ Oro Install
 Check if my Trainings Bundle exists
 
 ```bash
-php bin/console debug:container --parameter=kernel.bundles --format=json | grep Trainings
+php bin/console debug:container --parameter=kernel.bundles --format=json | grep Training
 ```
 
 List the migrations to be installed
