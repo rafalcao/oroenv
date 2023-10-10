@@ -5,6 +5,7 @@ namespace Training\Bundle\UserNamingBundle\Migrations\Schema;
 use Doctrine\DBAL\Schema\Schema;
 use Oro\Bundle\EntityExtendBundle\EntityConfig\ExtendScope;
 use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtension;
+use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtensionAwareInterface;
 use Oro\Bundle\MigrationBundle\Migration\Installation;
 use Oro\Bundle\MigrationBundle\Migration\QueryBag;
 use Training\Bundle\UserNamingBundle\Migrations\Schema\v1_1\AddUserRelation;
@@ -14,7 +15,7 @@ use Training\Bundle\UserNamingBundle\Migrations\Schema\v1_1\AddUserRelation;
  *
  * @package \Training\Bundle\UserNamingBundle\Migrations\Schema
  */
-class TrainingUserNamingBundleInstaller implements Installation
+class TrainingUserNamingBundleInstaller implements Installation, ExtendExtensionAwareInterface
 {
     /** @var string */
     const TABLE_NAME = 'training_user_naming_type';
@@ -32,6 +33,7 @@ class TrainingUserNamingBundleInstaller implements Installation
     public function setExtendExtension(ExtendExtension $extendExtension): AddUserRelation
     {
         $this->extendExtension = $extendExtension;
+
         return $this;
     }
 
@@ -40,7 +42,7 @@ class TrainingUserNamingBundleInstaller implements Installation
      *
      * @return string
      */
-    public function getMigrationVersion()
+    public function getMigrationVersion(): string
     {
         return 'v1_1';
     }
@@ -54,7 +56,7 @@ class TrainingUserNamingBundleInstaller implements Installation
      *
      * @return void
      */
-    public function up(Schema $schema, QueryBag $queries)
+    public function up(Schema $schema, QueryBag $queries): void
     {
         $this->addUserNamingTypeTable($schema);
         $this->addUserRelation($schema);
@@ -65,7 +67,7 @@ class TrainingUserNamingBundleInstaller implements Installation
      *
      * @return void
      */
-    private function addUserNamingTypeTable(Schema $schema)
+    private function addUserNamingTypeTable(Schema $schema): void
     {
         $table = $schema->createTable(self::TABLE_NAME);
         $table->addColumn('id', 'integer', ['autoincrement' => true]);
