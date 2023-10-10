@@ -3,8 +3,11 @@
 namespace Training\Bundle\UserNamingBundle\Migrations\Schema;
 
 use Doctrine\DBAL\Schema\Schema;
+use Oro\Bundle\EntityExtendBundle\EntityConfig\ExtendScope;
+use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtension;
 use Oro\Bundle\MigrationBundle\Migration\Installation;
 use Oro\Bundle\MigrationBundle\Migration\QueryBag;
+use Training\Bundle\UserNamingBundle\Migrations\Schema\v1_1\AddUserRelation;
 
 /**
  * Class TrainingUserNamingBundleInstaller
@@ -13,8 +16,24 @@ use Oro\Bundle\MigrationBundle\Migration\QueryBag;
  */
 class TrainingUserNamingBundleInstaller implements Installation
 {
+    /** @var string */
+    const TABLE_NAME = 'training_user_naming_type';
 
-    private const TABLE_NAME = 'training_user_naming_type';
+    /**
+     * @var ExtendExtension
+     */
+    private ExtendExtension $extendExtension;
+
+    /**
+     * @param ExtendExtension $extendExtension
+     *
+     * @return AddUserRelation
+     */
+    public function setExtendExtension(ExtendExtension $extendExtension): AddUserRelation
+    {
+        $this->extendExtension = $extendExtension;
+        return $this;
+    }
 
     /**
      * Gets a number of the last migration version implemented by this installation script
@@ -38,6 +57,7 @@ class TrainingUserNamingBundleInstaller implements Installation
     public function up(Schema $schema, QueryBag $queries)
     {
         $this->addUserNamingTypeTable($schema);
+        $this->addUserRelation($schema);
     }
 
     /**
@@ -52,5 +72,25 @@ class TrainingUserNamingBundleInstaller implements Installation
         $table->addColumn('title', 'string', ['length' => 64]);
         $table->addColumn('format', 'string', ['length' => 255]);
         $table->setPrimaryKey(['id']);
+    }
+
+
+    /**
+     * @param \Doctrine\DBAL\Schema\Schema $schema
+     *
+     * @return void
+     */
+    public function addUserRelation(Schema $schema)
+    {
+        $this->extendExtension->addManyToOneRelation(
+            $schema,
+            'oro_user',
+            'userNaming',
+            self::TABLE_NAME,
+            'title',
+            [
+                'extend' => ['owner' => ExtendScope::OWNER_CUSTOM]
+            ]
+        );
     }
 }
