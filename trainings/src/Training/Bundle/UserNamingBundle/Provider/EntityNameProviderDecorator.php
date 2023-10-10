@@ -13,14 +13,13 @@ class EntityNameProviderDecorator implements EntityNameProviderInterface
 
     }
 
-
     /**
      * {@inheritDoc}
      */
     public function getName($format, $locale, $entity)
     {
         if ($entity instanceof User) {
-            return sprintf('%s %s %s', $entity->getLastName(), $entity->getFirstName(), 'ASDASDUIAGS');
+            return sprintf('%s %s %s', $entity->getLastName(), $entity->getFirstName(), '@@@DECORATOR@@@');
         }
 
         return $this->originalNameProvider->getName($format, $locale, $entity);

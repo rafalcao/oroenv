@@ -1,0 +1,14 @@
+training.use_naming.full_formatted_name: Full Formatted Name
+
+oro:
+  user:
+    user_naming.label: User Name
+
+training:
+  usernaming:
+    usernamingtype:
+      entity_label: User Naming Type
+      entity_plural_label: User Naming Types
+      id.label: Id
+      title.label: Title
+      format.label: Format

@@ -117,3 +117,15 @@ Install migrations
 ```bash
 bin/console oro:migration:load --force
 ```
+
+List of fixtures
+
+```bash
+bin/console oro:migration:data:load --dry-run
+```
+
+Install fixtures
+
+```bash
+bin/console oro:migration:data:load
+```

@@ -28,9 +28,9 @@ class TrainingUserNamingBundleInstaller implements Installation, ExtendExtension
     /**
      * @param ExtendExtension $extendExtension
      *
-     * @return AddUserRelation
+     * @return \Training\Bundle\UserNamingBundle\Migrations\Schema\TrainingUserNamingBundleInstaller
      */
-    public function setExtendExtension(ExtendExtension $extendExtension): AddUserRelation
+    public function setExtendExtension(ExtendExtension $extendExtension): TrainingUserNamingBundleInstaller
     {
         $this->extendExtension = $extendExtension;
 
