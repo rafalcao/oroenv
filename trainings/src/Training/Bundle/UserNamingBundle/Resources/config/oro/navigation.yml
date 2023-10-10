@@ -1,0 +1,13 @@
+navigation:
+  menu_config:
+    items:
+      my_custom_contacts:
+        label: "My Custom Contacts"
+        route: 'oro_contact_index'
+        position: 8
+    tree:
+      application_menu:
+        children:
+          customers_tab:
+            children:
+              my_custom_contacts: ~
