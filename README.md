@@ -7,6 +7,12 @@ Inside this directory, clone the repository
   git clone https://github.com/oroinc/trainings/tree/5.1/training_start/
 ```
 
+Turn on the environment in docker
+
+```bash
+  docker-compose up -d
+```
+
 Run the command below on the postgres database
 
 ```bash
@@ -14,8 +20,6 @@ Run the command below on the postgres database
 ```
 
 Add the configuration files to the root of the "training" project
-
-
 
 `.env-app.local`
 ```bash
