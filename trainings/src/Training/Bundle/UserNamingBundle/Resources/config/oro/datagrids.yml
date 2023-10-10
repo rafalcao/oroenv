@@ -2,6 +2,23 @@ datagrids:
     contacts-grid:
       filters:
         columns:
-          firstName:
+          lastName:
             disabled: true
-
+    user-naming-types-grid:
+      extended_entity_name: Training\Bundle\UserNamingBundle\Entity\UserNamingType
+      source:
+        type: orm
+        query:
+          select:
+            - type.id
+            - type.title
+            - type.format
+          from:
+            - { table: 'Training\Bundle\UserNamingBundle\Entity\UserNamingType', alias: type }
+      columns:
+        title:
+          label: 'Title'
+        format:
+          label: 'Format'
+        id:
+          label: 'ID'
