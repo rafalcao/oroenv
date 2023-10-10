@@ -253,6 +253,7 @@
       <excludeFolder url="file://$MODULE_DIR$/trainings/vendor/willdurand/jsonp-callback-validator" />
       <excludeFolder url="file://$MODULE_DIR$/trainings/vendor/willdurand/negotiation" />
       <excludeFolder url="file://$MODULE_DIR$/trainings/vendor/xemlock/htmlpurifier-html5" />
+      <excludeFolder url="file://$MODULE_DIR$/trainings/var" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

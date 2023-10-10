@@ -81,3 +81,21 @@ Oro Install
 ```bash
   bin/console oro:install --user-name=admin --user-email=admin@admin.com --application-url=http://127.0.0.1 --user-firstname=John  --user-lastname=Due --user-password=admin --organization-name=Oro --env=dev --sample-data=y --timeout=0
 ```
+
+Check if my Trainings Bundle exists
+
+```bash
+php bin/console debug:container --parameter=kernel.bundles --format=json | grep Trainings
+```
+
+List the migrations to be installed
+
+```bash
+bin/console oro:migration:load --dry-run
+```
+
+Install migrations
+
+```bash
+bin/console oro:migration:load --dry-run
+```
