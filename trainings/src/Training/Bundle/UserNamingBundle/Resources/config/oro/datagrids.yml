@@ -17,8 +17,15 @@ datagrids:
             - { table: 'Training\Bundle\UserNamingBundle\Entity\UserNamingType', alias: type }
       columns:
         title:
-          label: 'Title'
+          label: 'training.usernaming.usernamingtype.title.label'
         format:
-          label: 'Format'
-        id:
-          label: 'ID'
+          label: 'training.usernaming.usernamingtype.format.label'
+      filters:
+        columns:
+          title:
+            type: string
+            data_name: type.title
+      sorters:
+        columns:
+          title:
+            data_name: type.title
