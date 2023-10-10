@@ -13,6 +13,18 @@ services:
       - ./config/nginx/sites-enabled/:/etc/nginx/sites-enabled/
       - ./trainings/:/var/www/html/
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.2
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: "single-node"
+      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+      xpack.monitoring.enabled: "true"
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data
+
   php-82:
     build: ./docker-images/php-82
     container_name: php-82
@@ -23,7 +35,7 @@ services:
       - ./trainings/:/var/www/html/
 
   postgres:
-    image: postgres:13.12
+    image: postgres:13.7
     container_name: postgres
     ports:
       - "5432:5432"
@@ -46,3 +58,16 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
+
+  rabbitmq:
+   image: rabbitmq:3-management
+   container_name: rabbitmq_management
+   ports: 
+    - 25672:25672
+    - 15672:15672 
+   volumes:
+    - /docker_conf/rabbitmq/data/:/var/lib/rabbitmq/
+   environment:
+    - RABBITMQ_DEFAULT_USER = admin
+    - RABBITMQ_DEFAULT_PASS = passw123
+   restart: always
