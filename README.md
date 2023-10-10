@@ -115,5 +115,5 @@ bin/console oro:migration:load --dry-run
 Install migrations
 
 ```bash
-bin/console oro:migration:load --dry-run
+bin/console oro:migration:load --force
 ```
