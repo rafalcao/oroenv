@@ -10,7 +10,9 @@ use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 /**
  * @ORM\Table(name="training_user_naming_type")
  * @ORM\Entity()
- * @Config()
+ * @Config(
+ *     routeName="training_user_naming_index"
+ * )
  */
 
 class UserNamingType implements ExtendEntityInterface

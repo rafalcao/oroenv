@@ -2,4 +2,3 @@ training.user_naming_controller:
     resource: "@TrainingUserNamingBundle/Controller/UserNamingTypeController.php"
     type: annotation
     prefix: /usernaming
-

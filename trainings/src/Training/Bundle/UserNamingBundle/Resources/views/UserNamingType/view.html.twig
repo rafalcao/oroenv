@@ -1,0 +1,20 @@
+{% extends '@OroUI/actions/view.html.twig'  %}
+
+{% import '@OroUI/macros.html.twig' as UI %}
+
+{% block content_data  %}
+    {% set userNamingInfo  %}
+        {{ UI.renderProperty('training.usernaming.usernamingtype.title.label'|trans, entity.title)  }}
+        {{ UI.renderProperty('training.usernaming.usernamingtype.format.label'|trans, entity.format) }}
+    {% endset %}
+    {% set dataBlocks =  [{
+       'title': 'General Information'|trans,
+        'subblocks': [
+            {'data': [userNamingInfo]},
+        ]
+    }] %}
+    {% set id =  'user-naming-type-view'  %}
+    {% set data = {'dataBlocks': dataBlocks} %}
+
+    {{ parent() }}
+{% endblock content_data %}

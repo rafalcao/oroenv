@@ -129,3 +129,9 @@ Install fixtures
 ```bash
 bin/console oro:migration:data:load
 ```
+
+Update Entities
+
+```bash
+bin/console oro:entity-config:update
+```
