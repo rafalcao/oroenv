@@ -2,9 +2,11 @@
 
 namespace Training\Bundle\UserNamingBundle\Controller;
 
+use Oro\Bundle\SecurityBundle\Annotation\Acl;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 use Training\Bundle\UserNamingBundle\Entity\UserNamingType;
+use Oro\Bundle\SecurityBundle\Annotation\AclAncestor;
 
 /**
  * Class UserNamingTypeController
@@ -15,7 +17,8 @@ class UserNamingTypeController
 {
     /**
      * @Route("/", "training_user_naming_index")
-     * @Template("@TrainingUserNaming/UserNamingType/index.html.twig")
+     * @Template
+     * @AclAncestor("training_user_naming_view")
      */
     public function indexAction()
     {
@@ -26,7 +29,13 @@ class UserNamingTypeController
 
     /**
      * @Route("/view/{id}", name="training_user_naming_view", requirements={"id"="\d+"})
-     * @Template("@TrainingUserNaming/UserNamingType/view.html.twig")
+     * @Template
+     * @Acl(
+     *     id="training_user_naming_view",
+     *     type="entity",
+     *     class="TrainingUserNamingBundle:UserNamingType",
+     *     permission="VIEW"
+     * )
      */
     public function viewAction(UserNamingType $userNamingType): array
     {

@@ -1,0 +1,36 @@
+services:
+  training_user_naming.importexport.data_converter.user_naming_type:
+        parent: oro_importexport.data_converter.configurable
+  training_user_naming.importexport.strategy.user_naming_type:
+        parent: oro_importexport.strategy.configurable_add_or_replace
+  training_user_naning.importexport.processor.export_user_naming_type:
+        parent: oro_importexport.processor.export_abstract
+        calls:
+            - [setDataConverter, ['@training_user_naming.importexport.data_converter.user_naming_type']]
+        tags:
+            -
+              name: oro_importexport.processor
+              type: export
+              entity: Training\Bundle\UserNamingBundle\Entity\UserNamingType
+              alias: training_user_naming_type
+  training_user_naming.importexport.processor.import.user_naming_type:
+        parent: oro_importexport.processor.import_abstract
+        calls:
+            - [setDataConverter, ['@training_user_naming.importexport.data_converter.user_naming_type']]
+            - [setStrategy, ['@training_user_naming.importexport.strategy.user_naming_type']]
+        tags:
+            -
+              name: oro_importexport.processor
+              type: import
+              entity: Training\Bundle\UserNamingBundle\Entity\UserNamingType
+              alias: training_user_naming_type
+            -
+              name: oro_importexport.processor
+              type: import_validation
+              entity: Training\Bundle\UserNamingBundle\Entity\UserNamingType
+              alias: training_user_naming_type
+  Training\Bundle\UserNamingBundle\ImportExport\UserNamingImportExportConfigurationProvider:
+        tags:
+            -
+              name: oro_importexport.configuration
+              alias: training_user_naming_type

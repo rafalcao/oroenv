@@ -135,3 +135,9 @@ Update Entities
 ```bash
 bin/console oro:entity-config:update
 ```
+
+Update Roles
+
+```bash
+bin/console oro:entity-config:update
+```

@@ -5,6 +5,7 @@ datagrids:
         lastName:
           disabled: true
   user-naming-types-grid:
+    acl_resource: training_user_naming_index
     extended_entity_name: Training\Bundle\UserNamingBundle\Entity\UserNamingType
     source:
       type: orm
