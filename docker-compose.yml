@@ -58,16 +58,3 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
-
-  rabbitmq:
-   image: rabbitmq:3-management
-   container_name: rabbitmq_management
-   ports: 
-    - 25672:25672
-    - 15672:15672 
-   volumes:
-    - /docker_conf/rabbitmq/data/:/var/lib/rabbitmq/
-   environment:
-    - RABBITMQ_DEFAULT_USER = admin
-    - RABBITMQ_DEFAULT_PASS = passw123
-   restart: always

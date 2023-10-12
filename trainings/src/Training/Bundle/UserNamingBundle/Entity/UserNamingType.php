@@ -30,16 +30,38 @@ class UserNamingType implements ExtendEntityInterface
      * @ORM\Id
      * @ORM\Column(type="integer", name="id")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ConfigField(
+     *          defaultValues={
+     *               "importexport"={
+     *                   "order"=10
+     *               }
+     *          }
+     *  )
      */
     private $id;
 
     /**
      * @var  @ORM\Column(type="string", length=64, nullable=false)
+     * @ConfigField(
+     *         defaultValues={
+     *              "importexport"={
+     *                  "identity"=true,
+     *                  "order"=20
+     *              }
+     *         }
+     * )
      */
     private $title;
 
     /**
      * @var  @ORM\Column(type="string", length=255, nullable=false)
+     * @ConfigField(
+     *           defaultValues={
+     *                "importexport"={
+     *                    "order"=30
+     *                }
+     *           }
+     *   )
      */
     private $format;
 
